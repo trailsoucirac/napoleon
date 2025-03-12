@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trail - Sur les Traces de Napoléon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('fond-nature.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .image-container img {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        #countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 20px;
+        }
+        .logo {
+    display: block; /* Nécessaire pour utiliser margin auto */
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px; /* Ajuste la taille selon tes besoins */
+    height: auto;
+}
+
+        }
+    </style>
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date("July 14, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerHTML = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+            setTimeout(updateCountdown, 1000);
+        }
+        window.onload = updateCountdown;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="images/logo-napoelon.jpg" alt="Logo du Trail" class="logo">
+        <h1>Trail - Sur les Traces de Napoléon</h1>
+        <h2>Soucirac - 14 juillet 2025</h2>
+        <p>Plongez au cœur d’une aventure historique et sportive !.</p>
+        
+        <h2>Départ dans :</h2>
+        <div id="countdown"></div>
+        
+        <h2>Les parcours</h2>
+        <ul>
+            <li><strong>Trail 20 km</strong> - Un parcours exigeant pour les passionnés de défis.</li>
+            <div class="image-container">
+                <img src="images/carte-20km.jpg" alt="Carte du parcours 20 km">
+                <img src="images/profil-20km.jpg" alt="Dénivelé du parcours 20 km">
+            </div>
+            
+            <li><strong>Trail 12 km</strong> - Une course accessible alliant plaisir et performance.</li>
+            <div class="image-container">
+                <img src="images/carte  12 km.jpg" alt="Carte du parcours 12 km">
+                <img src="images/profil 12 km.jpg" alt="Dénivelé du parcours 12 km">
+            </div>
+            
+            <li><strong>Randonnée 5 km</strong> - Une balade agréable pour profiter du paysage.</li>
+            <div class="image-container">
+                <img src="images/carte 5 km.jpg" alt="Carte du parcours 5 km">
+                <img src="images/profil 5km.jpg" alt="Dénivelé du parcours 5 km">
+            </div>
+        </ul>
+        
+        <h2>Pourquoi participer ?</h2>
+        <p>Un cadre naturel exceptionnel, une ambiance conviviale et un défi à relever ! Venez profiter du repas traditionnel et champètre apres la course.</p>
+        
+        <h2>Inscription</h2>
+        <p><a href="https://www.inscription-trail.com" target="_blank" style="font-size: 18px; color: #e74c3c; font-weight: bold;">Cliquez ici pour vous inscrire</a></p>
+        
+        <h2>Pour nous trouver</h2>
+        <html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mairie de Soucirac sur OpenStreetMap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        #map { height: 500px; }
+    </style>
+</head>
+<body>
+    <h1>Mairie de Soucirac</h1>
+    <div id="map"></div>
+
+    <script>
+        var map = L.map('map').setView([44.70331, 1.50426], 15); // Coordonnées et zoom
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([44.70331, 1.50426]).addTo(map)
+            .bindPopup("trail sur les traces de napoleon");
+
+        
+    </script>
+</body>
+</html>
